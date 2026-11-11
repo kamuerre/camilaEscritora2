@@ -1930,7 +1930,13 @@ function actualizarMarcadoresSidebar() {
     }
   });
 }
-
+// Función para alternar el menú lateral (Minimizar / Mostrar)
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  if (sidebar) {
+    sidebar.classList.toggle("collapsed");
+  }
+}
 // --- NAVEGACIÓN ANTERIOR / SIGUIENTE ---
 
 function actualizarBotonesNavegacion(id) {
