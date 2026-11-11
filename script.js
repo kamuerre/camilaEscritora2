@@ -1844,42 +1844,62 @@ const escritos = {
     `
   }
 };
-
-// Variable para saber qué escrito está cargado actualmente
+// Variable global para rastrear el escrito activo
 let escritoActualId = null;
 
-// Función para obtener la lista de IDs de todos los escritos en orden
+// Obtener la lista ordenada de IDs de todos tus escritos cargados en la variable 'escritos'
 function obtenerListaIds() {
   return Object.keys(escritos);
 }
 
-// Función principal para cargar un escrito
+// 1. FUNCIÓN PARA OCULTAR / MOSTRAR EL MENÚ LATERAL (PANTALLA COMPLETA)
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  if (sidebar) {
+    sidebar.classList.toggle("collapsed");
+  }
+}
+
+// 2. FUNCIÓN PRINCIPAL DE CARGA DE TEXTO
 function cargarTexto(id) {
   const escrito = escritos[id];
   if (!escrito) return;
 
   escritoActualId = id;
 
-  // Actualizar DOM del escrito
-  document.getElementById("titulo-escrito").innerText = escrito.titulo;
-  document.getElementById("fecha-escrito").innerText = escrito.fecha || "";
-  document.getElementById("cuerpo-escrito").innerHTML = escrito.contenido;
+  // Actualizar contenido en el DOM
+  const tituloElem = document.getElementById('titulo-escrito');
+  const fechaElem = document.getElementById('fecha-escrito');
+  const cuerpoElem = document.getElementById('cuerpo-escrito');
 
-  // Renderizar controles de leídos y navegación
+  if (tituloElem) tituloElem.innerText = escrito.titulo;
+  if (fechaElem) fechaElem.innerText = escrito.fecha || "";
+  if (cuerpoElem) cuerpoElem.innerHTML = escrito.contenido;
+
+  // Renderizar los controles de lectura y los botones de navegación
   renderizarControlesLectura(id);
   actualizarBotonesNavegacion(id);
 
-  // Marcar botón activo en la barra lateral
-  document.querySelectorAll(".sidebar button").forEach(btn => btn.classList.remove("activo"));
-  const btnActivo = document.getElementById(`btn-${id}`);
-  if (btnActivo) btnActivo.classList.add("activo");
+  // Actualizar estado activo en los botones del índice lateral
+  const botones = document.querySelectorAll('.sidebar button');
+  botones.forEach(btn => btn.classList.remove('activo'));
+  
+  const botonSeleccionado = document.getElementById(`btn-${id}`);
+  if (botonSeleccionado) botonSeleccionado.classList.add('activo');
 
-  // Scroll suave al inicio del visor en móviles
+  // En móviles, oculta el menú automáticamente al seleccionar un escrito
+  if (window.innerWidth <= 768) {
+    const sidebar = document.getElementById("sidebar");
+    if (sidebar && !sidebar.classList.contains("collapsed")) {
+      sidebar.classList.add("collapsed");
+    }
+  }
+
+  // Scroll suave al inicio del visor
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// --- GESTIÓN DE LEÍDOS (localStorage) ---
-
+// 3. GESTIÓN DE LEÍDOS (localStorage)
 function esLeido(id) {
   const leidos = JSON.parse(localStorage.getItem("escritos_leidos") || "[]");
   return leidos.includes(id);
@@ -1894,76 +1914,82 @@ function toggleLeido(id) {
   }
   localStorage.setItem("escritos_leidos", JSON.stringify(leidos));
   
-  // Re-renderizar estado
   renderizarControlesLectura(id);
   actualizarMarcadoresSidebar();
 }
 
 function renderizarControlesLectura(id) {
   let contenedor = document.getElementById("controles-lectura");
-  if (!contenedor) {
+  const articulo = document.getElementById("escrito-contenedor");
+  const cuerpo = document.getElementById("cuerpo-escrito");
+
+  if (!contenedor && articulo && cuerpo) {
     contenedor = document.createElement("div");
     contenedor.id = "controles-lectura";
-    const header = document.getElementById("escrito-contenedor");
-    header.insertBefore(contenedor, document.getElementById("cuerpo-escrito"));
+    articulo.insertBefore(contenedor, cuerpo);
   }
 
-  const leido = esLeido(id);
-  contenedor.innerHTML = `
-    <label class="checkbox-leido">
-      <input type="checkbox" ${leido ? "checked" : ""} onchange="toggleLeido('${id}')">
-      <span>${leido ? "✓ Marcado como leído" : "Marcar como leído"}</span>
-    </label>
-  `;
+  if (contenedor) {
+    const leido = esLeido(id);
+    contenedor.innerHTML = `
+      <label class="checkbox-leido">
+        <input type="checkbox" ${leido ? "checked" : ""} onchange="toggleLeido('${id}')">
+        <span>${leido ? "✓ Marcado como leído" : "Marcar como leído"}</span>
+      </label>
+    `;
+  }
 }
 
 function actualizarMarcadoresSidebar() {
   const leidos = JSON.parse(localStorage.getItem("escritos_leidos") || "[]");
-  obtenerListaIds().forEach(id => {
-    const btn = document.getElementById(`btn-${id}`);
-    if (btn) {
-      if (leidos.includes(id)) {
-        btn.classList.add("leido");
-      } else {
-        btn.classList.remove("leido");
-      }
+  
+  // Recorre todos los botones del índice y actualiza la tilde
+  document.querySelectorAll('.sidebar button').forEach(btn => {
+    const id = btn.id.replace('btn-', '');
+    if (leidos.includes(id)) {
+      btn.classList.add("leido");
+    } else {
+      btn.classList.remove("leido");
     }
   });
 }
-// Función para alternar el menú lateral (Minimizar / Mostrar)
-function toggleSidebar() {
-  const sidebar = document.getElementById("sidebar");
-  if (sidebar) {
-    sidebar.classList.toggle("collapsed");
-  }
-}
-// --- NAVEGACIÓN ANTERIOR / SIGUIENTE ---
 
+// 4. NAVEGACIÓN ANTERIOR / SIGUIENTE
 function actualizarBotonesNavegacion(id) {
   const ids = obtenerListaIds();
   const index = ids.indexOf(id);
 
   let nav = document.getElementById("navegacion-escritos");
-  if (!nav) {
+  const articulo = document.getElementById("escrito-contenedor");
+
+  if (!nav && articulo) {
     nav = document.createElement("nav");
     nav.id = "navegacion-escritos";
-    document.getElementById("escrito-contenedor").appendChild(nav);
+    articulo.appendChild(nav);
   }
 
-  const anteriorId = index > 0 ? ids[index - 1] : null;
-  const siguienteId = index < ids.length - 1 ? ids[index + 1] : null;
+  if (nav) {
+    const anteriorId = index > 0 ? ids[index - 1] : null;
+    const siguienteId = index >= 0 && index < ids.length - 1 ? ids[index + 1] : null;
 
-  nav.innerHTML = `
-    <button ${!anteriorId ? "disabled" : ""} onclick="cargarTexto('${anteriorId}')" class="btn-nav">
-      ← Anterior
-    </button>
-    <button ${!siguienteId ? "disabled" : ""} onclick="cargarTexto('${siguienteId}')" class="btn-nav">
-      Siguiente →
-    </button>
-  `;
+    nav.innerHTML = `
+      <button ${!anteriorId ? "disabled" : ""} onclick="cargarTexto('${anteriorId}')" class="btn-nav">
+        ← Anterior
+      </button>
+      <button ${!siguienteId ? "disabled" : ""} onclick="cargarTexto('${siguienteId}')" class="btn-nav">
+        Siguiente →
+      </button>
+    `;
+  }
 }
 
-// Inicializar marcadores en el menú lateral al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
+// 5. INICIALIZACIÓN AL CÁRGAR LA PÁGINA
+document.addEventListener('DOMContentLoaded', () => {
   actualizarMarcadoresSidebar();
+  
+  // Carga automática del primer escrito disponible en el objeto escritos
+  const lista = obtenerListaIds();
+  if (lista.length > 0) {
+    cargarTexto(lista[0]);
+  }
 });
