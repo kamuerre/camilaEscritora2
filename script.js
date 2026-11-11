@@ -1872,6 +1872,20 @@ const escritos = {
         Este portafolio es mi "diario". El hogar ordenado de mis luces y mis sombras, para que nada de lo vivido quede en el silencio y para que mi voz siga siendo, ante todo, mía. Para recordar que la tengo, para saber y decir que me gusta, como me gusta y como quiero vivir. 
       </p>
     `
+  },
+  "haiku-lagrimas": {
+    titulo: "Haiku",
+    categoria: "Poesía y Poemas",
+    fecha: "2004",
+    contenido: `
+      <div style="text-align: center; margin: 40px 0; font-style: italic; line-height: 2;">
+        <p>
+          Inagotables<br>
+          lágrimas de tristeza<br>
+          brotan del cielo.
+        </p>
+      </div>
+    `
   }
 };
 // Variable global para rastrear el escrito activo
