@@ -1,3 +1,4 @@
+/* --- RESET Y ESTILOS GLOBALES --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,37 +10,108 @@ body {
   background-color: #fdfbf7;
   color: #2c2c2c;
   line-height: 1.7;
+  min-height: 100vh;
+}
+
+/* Evita la selección accidental de texto si deseas proteger el contenido */
+body {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .layout {
   display: flex;
   min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* Sidebar / Índice */
+/* --- SIDEBAR / ÍNDICE MINIMIZABLE --- */
 .sidebar {
-  width: 300px;
+  width: 320px;
   background-color: #f4efe6;
   border-right: 1px solid #e0d8cb;
   padding: 2rem 1.5rem;
+  transition: transform 0.3s ease, margin-left 0.3s ease;
+  z-index: 100;
+  flex-shrink: 0;
 }
 
-.sidebar h2 {
+/* Estado minimizado del índice (Pantalla completa) */
+.sidebar.collapsed {
+  margin-left: -320px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
-  font-size: 1.4rem;
   border-bottom: 2px solid #333;
   padding-bottom: 0.5rem;
 }
 
+.sidebar-header h2 {
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+#btn-toggle-sidebar {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+#btn-toggle-sidebar:hover {
+  background-color: #e0d8cb;
+  color: #000;
+}
+
+/* Botón flotante para abrir el índice cuando está oculto */
+#btn-open-sidebar {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: none;
+  z-index: 99;
+  padding: 8px 14px;
+  background-color: #2b547e;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+#btn-open-sidebar:hover {
+  background-color: #1a3654;
+}
+
+.sidebar.collapsed ~ #btn-open-sidebar {
+  display: block;
+}
+
+/* Categorías del menú */
 .categoria {
   margin-bottom: 1.5rem;
 }
 
 .categoria h3 {
-  font-size: 1rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #888;
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  margin-bottom: 0.6rem;
 }
 
 .sidebar ul {
@@ -50,11 +122,13 @@ body {
   background: none;
   border: none;
   color: #2b547e;
-  font-size: 1rem;
+  font-size: 0.95rem;
+  font-family: 'Georgia', serif;
   text-align: left;
   cursor: pointer;
-  padding: 0.3rem 0;
+  padding: 0.4rem 0;
   width: 100%;
+  transition: color 0.2s, padding-left 0.2s;
 }
 
 .sidebar button:hover {
@@ -62,11 +136,30 @@ body {
   color: #000;
 }
 
-/* Visor */
+/* Estado activo e indicador de leído */
+.sidebar button.activo {
+  font-weight: bold;
+  color: #8a2be2;
+  border-left: 3px solid #8a2be2;
+  padding-left: 8px;
+}
+
+.sidebar button.leido::after {
+  content: " ✓";
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* --- VISOR DE CONTENIDO Y PANTALLA COMPLETA --- */
 .content-viewer {
   flex: 1;
-  padding: 4rem 15%;
-  max-width: 900px;
+  padding: 4rem 12%;
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: padding 0.3s ease;
 }
 
 .fecha {
@@ -77,25 +170,20 @@ body {
 }
 
 #cuerpo-escrito p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.4rem;
   font-size: 1.1rem;
-}
-/* Estado activo e indicador de leído en el menú lateral */
-.sidebar button.activo {
-  font-weight: bold;
-  border-left: 3px solid #8a2be2; /* Violeta o el tono accent de tu sitio */
-  padding-left: 8px;
+  text-align: justify;
 }
 
-.sidebar button.leido::after {
-  content: " ✓";
-  color: #2e7d32;
-  font-weight: bold;
+#cuerpo-escrito hr {
+  border: none;
+  border-top: 1px dashed #d0c8b8;
+  margin: 2.5rem 0;
 }
 
 /* Control de "Marcar como leído" */
 #controles-lectura {
-  margin: 15px 0;
+  margin: 1.5rem 0;
   display: flex;
   align-items: center;
 }
@@ -106,38 +194,81 @@ body {
   gap: 8px;
   cursor: pointer;
   font-size: 0.9em;
+  font-family: sans-serif;
+  color: #555;
   user-select: none;
 }
 
 .checkbox-leido input[type="checkbox"] {
   cursor: pointer;
   accent-color: #8a2be2;
+  width: 16px;
+  height: 16px;
 }
 
 /* Navegación Anterior / Siguiente */
 #navegacion-escritos {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0d8cb;
 }
 
 .btn-nav {
-  padding: 8px 16px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  padding: 10px 18px;
+  background-color: #f4efe6;
+  border: 1px solid #d0c8b8;
+  color: #2b547e;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.2s;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
 .btn-nav:hover:not(:disabled) {
-  background-color: #e0e0e0;
+  background-color: #e8e0d0;
+  border-color: #b0a898;
 }
 
 .btn-nav:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+/* --- FOOTER --- */
+.site-footer {
+  margin-top: auto;
+  padding: 3rem 0 1.5rem 0;
+  border-top: 1px solid #e0d8cb;
+  text-align: center;
+  font-size: 0.85rem;
+  font-family: sans-serif;
+  color: #777;
+}
+
+/* --- RESPONSIVE EN MÓVILES --- */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .sidebar.collapsed {
+    margin-left: 0;
+    transform: translateX(-100%);
+  }
+
+  .content-viewer {
+    padding: 3rem 1.5rem 2rem 1.5rem;
+  }
 }
