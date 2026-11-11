@@ -1842,6 +1842,36 @@ const escritos = {
 
       </div>
     `
+  },
+  "acerca-de-mi": {
+    titulo: "Acerca de mí",
+    categoria: "Biografía",
+    fecha: "Notas de autora",
+    contenido: `
+      <p style="font-style: italic; color: #555; margin-bottom: 2rem;">
+        «Escribir no fue una elección académica ni un pasatiempo: fue mi forma de respirar cuando el aire faltaba».
+      </p>
+
+      <p>
+        Desde muy chica, la escritura fue mi refugio y mi mayor desahogo. Escribía impulsada por la música, por las noticias que me sacudían las entrañas, por el desamor o por el miedo. Escribir era el único espacio donde el dolor encontraba una pausa y la mente finalmente se calmaba.
+      </p>
+
+      <p>
+        La gran mayoría de los poemas, cuentos y relatos que habitan este sitio nacieron entre los años 2006 y 2015. Durante esa década me tocó atravesar una vida compleja, exigente y muchas veces solitaria. Fui mamá muy joven: una maternidad profundamente deseada, pero tremendamente difícil de asumir. La responsabilidad pesaba en los hombros y la soledad dolía en el cuerpo. Entre la crianza sin compañía, la supervivencia a situaciones de mucha violencia y las tempestades personales, los cuadernos fueron la trinchera donde pude sostener mi identidad.
+      </p>
+
+      <p>
+        Siempre sentí que tenía mucho para contar. Entre 2016 y 2018 busqué volcar esa necesidad en el arte cursando lo que podía en la UNA, pero llevar adelante una casa y criar a mi hija sola hacía imposible sostener la carrera. También me formé para la docencia de primaria y, en 2020, en plena pandemia, me sumé a un curso de guion cinematográfico buscando en el cine una nueva vía de expresión (de ahí nació el ejercicio de desguionado de <em>La odisea de los giles</em>). Hoy, toda esa búsqueda creativa y de estructuración encontró un nuevo canal en la informática, a través de la Licenciatura en Ciencias de la Computación y la Tecnicatura en Desarrollo de Software.
+      </p>
+
+      <p>
+        Esta recopilación no nació por casualidad. La reuní para compartirla en mi espacio terapéutico, buscando que puedan comprender la profundidad de lo que atravesé. No quiero olvidar, pero tampoco quiero quedar atrapada en el recuerdo: me quiero reconstruir. Dejo este material para que otros puedan leerlo, analizarlo y acompañarme a armar las piezas.
+      </p>
+
+      <p>
+        Este portafolio es mi "diario". El hogar ordenado de mis luces y mis sombras, para que nada de lo vivido quede en el silencio y para que mi voz siga siendo, ante todo, mía. Para recordar que la tengo, para saber y decir que me gusta, como me gusta y como quiero vivir. 
+      </p>
+    `
   }
 };
 // Variable global para rastrear el escrito activo
