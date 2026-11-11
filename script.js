@@ -1731,6 +1731,105 @@ const escritos = {
         ¿cuáles van a ser las palabras que vas a poner en mi boca?
       </p>
     `
+  },
+  "la-odisea-de-los-giles-desguionado": {
+    titulo: "La odisea de los giles (Desguionado)",
+    categoria: "Guion cinematográfico",
+    fecha: "Ejercicio de curso (2020)",
+    contenido: `
+      <p style="text-align: center; margin-bottom: 30px;">
+        <strong>DESGUIOANDO - LA ODISEA DE LOS GILES</strong><br>
+        <em>Rasnosky Camila (2020)</em>
+      </p>
+
+      <hr>
+
+      <!-- ESCENA 1 -->
+      <p><strong>1 EXT- LA CHACRA SECRETA DE MANZI - AFUERA DE LOS ALAMBRADOS - NOCHE</strong></p>
+      
+      <p><em>INICIA MÚSICA CLÁSICA. SONIDO DE LLUVIA / SONIDO DE TRUENOS en la oscuridad. Llueve, la escena se sitúa en una zona arbolada y pastos altos, se la nota con poco mantenimiento.</em></p>
+
+      <p style="margin-left: 20px;">
+        <strong>FERMÍN PERLASSI (En off)</strong><br>
+        —Según el diccionario «Gil» es una persona lenta a la que le falta viveza y picardía, aunque ya sabemos que es de laburante, tipo honesto, gente que cumple las normas, terminan siendo sinónimos de gil.
+      </p>
+
+      <p>Ahora situados sobre el espacio trasero de una furgoneta / camioneta, se encuentran tres hombres parados, totalmente mojados y observando hacia lo lejos, en dirección izquierda. Ellos son ELADIO GÓMEZ, JOSÉ GÓMEZ Y HERNÁN LORGIO, vestidos con pilotos o ropa de lluvia. Los dos primeros son hermanos de unos 36 o 37 años. Mientras que a HERNÁN LORGIO se lo nota un poco más joven, entre 25 y 28 años.</p>
+
+      <p style="margin-left: 20px;">
+        <strong>FERMÍN PERLASSI (Continúa en off)</strong><br>
+        —Pero un día, el abuso al que estamos acostumbrados los giles, se convierte en una verdadera patada en los dientes, y uno dice «BASTA». Y se encuentra haciendo algo que nunca se hubiera imaginado capaz de hacer.
+      </p>
+
+      <p>Finalmente delante de la camioneta están parados dos hombres más, también vestidos con ropa de lluvia o pilotos, completamente mojados, y también están observando el mismo punto a lo lejos. Ellos son FERMÍN PERLASSI Y RODRIGO PERLASSI. Son padre e hijo, el primero FERMÍN PERLASSI de 55 años aproximadamente de edad, y su hijo RODRIGO PERLASSI de 25 o 28 años también aproximadamente.</p>
+
+      <p>Los cinco hombres están a la espera de una señal luminosa (en este caso una bengala).</p>
+
+      <p>FERMÍN PERLASSI se encuentra muy concentrado en observar la llegada de la señal.</p>
+
+      <p><em>Aumenta el SONIDO DE MÚSICA CLÁSICA y disminuye el SONIDO DE LLUVIA Y TRUENOS.</em></p>
+
+      <p style="text-align: right;"><strong>CORTE A</strong></p>
+
+      <hr>
+
+      <!-- ESCENA 2 -->
+      <p><strong>2 EXT – LA USINA ELÉCTRICA DE ALSINA – NOCHE</strong></p>
+
+      <p>Continúa la MÚSICA CLÁSICA, y en menor medida el SONIDO DE LLUVIA Y SONIDO DE TRUENOS, mientras tanto la usina eléctrica explota en solo dos segundos con un SONIDO ESTRUENDOSO y entre las llamas se ven partes de un auto consumiéndose por el fuego y elevándose en el aire, a raíz de la explosión.</p>
+
+      <p>Aparecen las letras del título «La odisea de los giles», delimitadas con el fuego de la explosión, mientras el resto del fondo se torna negro.</p>
+
+      <p><em>FINALIZA MÚSICA CLÁSICA.<br>FUNDE A NEGRO.</em></p>
+
+      <hr>
+
+      <!-- ESCENA 3 -->
+      <p><strong>3 EXT - LA METÓDICA – VISTA EXTERIOR A LA METÓDICA - DÍA</strong></p>
+
+      <p>La metódica es una acopiadora de granos en estado de abandono. La intención de LIDIA DE PERLASSI Y FERMÍN PERLASSI es comprarla para conformar una cooperativa de trabajo. Están visitándola con su amigo ANTONIO FONTANA, al cual planean sumar al proyecto.</p>
+
+      <p style="margin-left: 20px;">
+        <strong>ANTONIO FONTANA (En Off) (Decepcionado)</strong><br>
+        —Hay que poner mucha guita acá.
+      </p>
+
+      <p>ANTONIO FONTANA, LIDIA PERLASSI Y FERMÍN PERLASSI miran a unos metros la fachada de la acopiadora, que se ve bastante desarreglada. LIDIA Y FERMÍN son una pareja cariñosa, miran con ilusión el inmueble y mientras tanto se abrazan y se hacen algunas caricias muy sutiles. Se miran entre ellos con amor.</p>
+
+      <p style="margin-left: 20px;">
+        <strong>FERMÍN PERLASSI (Ilusionado)</strong><br>
+        —Capaz que sí. Pensá que hace más de diez años que lleva abandonado esto. Mucho tiempo, pero nosotros pensamos ¿Por qué no lo llamamos al HIJO DE DE LUCA y le hacemos una oferta? ¿Quién te dice?
+      </p>
+
+      <p style="margin-left: 20px;">
+        <strong>ANTONIO FONTANA (Burlón)</strong><br>
+        —¿Vos querés formar una empresa como la que ya se fundió en este mismo lugar?... Explicame esta idea brillante.
+      </p>
+
+      <p style="margin-left: 20px;">
+        <strong>FERMÍN PERLASSI</strong><br>
+        —Pará, pará un poco, es completamente distinto, es otra cosa. Es una cooperativa. Es darle la oportunidad al chacarero, al pequeño productor de que almacene acá, para que no tenga que vender cuando se lo pide el mercado.
+      </p>
+
+      <p style="margin-left: 20px;">
+        <strong>FERMÍN PERLASSI (En off)</strong><br>
+        —Antonio Fontana es un revolucionario de alma.
+      </p>
+
+      <p style="text-align: right;"><em>FUNDE A</em></p>
+
+      <hr>
+
+      <!-- ESCENA 4 -->
+      <p><strong>4 EXT – LA METÓDICA – INTERIOR DEL PREDIO – DÍA</strong></p>
+
+      <p>ANTONIO FONTANA recorre algunas instalaciones exteriores de «La Metódica».</p>
+
+      <p style="margin-left: 20px;">
+        <strong>FERMÍN PERLASSI (En off)</strong><br>
+        —Llegó al pueblo en el 84' cuando asumió Alfonsín. Vino con su familia para manejar el campamento de vialidad pero la plata nunca llegó y la mujer se hartó de Alsina, de Fontana, y se fue con los chicos. Él se quedó. En los 90' cerraron el campamento y puso la gomería.
+      </p>
+    `
   }
 };
 
