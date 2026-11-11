@@ -1678,7 +1678,60 @@ const escritos = {
 
       <p><strong>FIN</strong></p>
     `
-  } 
+  } ,
+  "cuando-me-duerma-mecida-en-las-olas": {
+    titulo: "Cuando me duerma mecida en las olas",
+    categoria: "Poesía y Poemas",
+    fecha: "Recopilación personal",
+    contenido: `
+      <p>
+        Y acá estás vos, poniendo cientos de palabras en mi boca.<br>
+        Expresando esa locura que hoy siente mi corazón.<br>
+        El mar de confusiones que furiosas rompen en las costas de mi memoria.<br>
+        El dolor es exacto, es puntual, es sistemático:<br>
+        me recuerda constantemente que ahí está, y que ahí va a estar.<br>
+        Que puede irse y volver a su antojo,<br>
+        que con una punzada, con solo una, puede derribarme otra vez.
+      </p>
+
+      <p>
+        Y vos, vos seguís ahí, poniendo palabras en mi boca,<br>
+        enturbiando mi mar con más confusión.<br>
+        Y yo, yo acá, pensando si aún tengo que amarte,<br>
+        y sintiendo que ya no puedo más de amor.<br>
+        Me descubro una vez más destruida,<br>
+        tratando de renacer desde lo más vergonzoso de mi ser,<br>
+        desde lo más profundo de mi propia humillación.<br>
+        Queriendo las respuestas a esas preguntas que todavía no originé,<br>
+        pero queriéndolas con tal ansiedad que ya no puedo pensar en otra cosa.
+      </p>
+
+      <p>
+        Y de pronto de nuevo estás vos, poniendo respuestas en mi boca,<br>
+        respuestas que no necesito, respuestas que no responden,<br>
+        respuestas sin preguntas, pero que te dejan complacido.<br>
+        Y ahí, recién ahí, comenzás a amarme:<br>
+        cuando el mar de la confusión obliga a mi boca a repetir aquello que tanto querés escuchar,<br>
+        las respuestas que me hacen infeliz.
+      </p>
+
+      <p>
+        Y yo cada vez más vacía, vulnerable, ausente,<br>
+        cada vez más sucia y más corrompida,<br>
+        pensando si alguna vez la tempestad que me atormenta va a parar.<br>
+        Si ese mar lleno de nostalgia del ayer,<br>
+        ese ayer que no es feliz, pero que uno añora,<br>
+        va a ahogar esas penas que lo alimentan,<br>
+        para por fin sentirme mecida hasta dormirme en sus aguas bañadas de olvido y perdón.
+      </p>
+
+      <p>
+        Y si el viento me deja en la orilla,<br>
+        y si por fin puedo encontrar el rumbo,<br>
+        ¿cuáles van a ser las palabras que vas a poner en mi boca?
+      </p>
+    `
+  }
 };
 
 // Variable para saber qué escrito está cargado actualmente
