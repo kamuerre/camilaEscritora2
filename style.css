@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  background-color: #fdfbf7;
+  color: #2c2c2c;
+  line-height: 1.7;
+}
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar / Índice */
+.sidebar {
+  width: 300px;
+  background-color: #f4efe6;
+  border-right: 1px solid #e0d8cb;
+  padding: 2rem 1.5rem;
+}
+
+.sidebar h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.categoria {
+  margin-bottom: 1.5rem;
+}
+
+.categoria h3 {
+  font-size: 1rem;
+  color: #666;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: #2b547e;
+  font-size: 1rem;
+  text-align: left;
+  cursor: pointer;
+  padding: 0.3rem 0;
+  width: 100%;
+}
+
+.sidebar button:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+/* Visor */
+.content-viewer {
+  flex: 1;
+  padding: 4rem 15%;
+  max-width: 900px;
+}
+
+.fecha {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#cuerpo-escrito p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+/* Estado activo e indicador de leído en el menú lateral */
+.sidebar button.activo {
+  font-weight: bold;
+  border-left: 3px solid #8a2be2; /* Violeta o el tono accent de tu sitio */
+  padding-left: 8px;
+}
+
+.sidebar button.leido::after {
+  content: " ✓";
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Control de "Marcar como leído" */
+#controles-lectura {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-leido {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  user-select: none;
+}
+
+.checkbox-leido input[type="checkbox"] {
+  cursor: pointer;
+  accent-color: #8a2be2;
+}
+
+/* Navegación Anterior / Siguiente */
+#navegacion-escritos {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.btn-nav {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.btn-nav:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.btn-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
